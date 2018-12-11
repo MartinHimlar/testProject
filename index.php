@@ -16,6 +16,13 @@ function autoload($class)
         require("model/" . $class . ".php");
 }
 
-$router = new routerController();
-$router->action(array($_SERVER['REQUEST_URI']));
-$router->render();
+$uri = $_SERVER['REQUEST_URI'];
+
+if ((preg_match('#^/api#i', $uri) === 1)) {
+    $api = new apiController();
+    $api->render(array($uri));
+} else {
+    $router = new routerController();
+    $router->action(array($uri));
+    $router->render();
+}

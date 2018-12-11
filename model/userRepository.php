@@ -12,7 +12,10 @@ class userRepository
     }
 
     public function findUsers()
-    {}
+    {
+        $sql = "SELECT * FROM " . DB_TABLE;
+        return database::find($sql);
+    }
 
     public function addUser($user, $pass)
     {

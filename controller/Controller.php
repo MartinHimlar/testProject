@@ -30,7 +30,7 @@ abstract class controller
         }
     }
 
-    public function redirect($url, $refresh = FALSE)
+    public static function redirect($url, $refresh = FALSE)
     {
         $refresh ? header('refresh: 0') : NULL;
         header("Location: /$url");

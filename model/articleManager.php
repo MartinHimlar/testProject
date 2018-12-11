@@ -17,9 +17,14 @@ class articleManager
         }
     }
 
-    public function findArticles($viewCount = 10)
+    public function findArticles($viewCount = FALSE)
     {
         return $this->bookRepo->findArticles($viewCount);
+    }
+
+    public function getArticle($id)
+    {
+        return $this->bookRepo->getArticle($id);
     }
 }
 

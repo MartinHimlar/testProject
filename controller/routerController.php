@@ -33,7 +33,7 @@ class routerController extends Controller
         $this->view = 'layout';
     }
 
-    private function parseURL($url)
+    public static function parseURL($url)
     {
         $newULR = parse_url($url);
         $newULR["path"] = ltrim($newULR["path"], "/");
